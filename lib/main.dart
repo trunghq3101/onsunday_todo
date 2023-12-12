@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(const MainApp());
@@ -9,22 +9,16 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.ltr,
-      child: Container(
-        color: const Color.fromARGB(255, 119, 0, 255),
-        child: GestureDetector(
-          onTap: () {
-            // do something
-          },
-          child: const Center(
-            child: Text(
-              'Hello world',
-              style: TextStyle(
-                color: Color(0xFFFFFFFF),
-              ),
-            ),
-          ),
+    return Container(
+      color: const Color(0xFFAAAFFF),
+      padding: const EdgeInsets.all(24),
+      child: const Text(
+        'To-do List app',
+        textDirection: TextDirection.ltr,
+        style: TextStyle(
+          color: Color(0xFF000000),
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
         ),
       ),
     );
