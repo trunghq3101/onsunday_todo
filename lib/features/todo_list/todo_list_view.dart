@@ -27,6 +27,12 @@ class _TodoListViewState extends State<TodoListView> {
                 ),
                 child: Row(
                   children: [
+                    Checkbox(
+                      value: todo.isDone,
+                      onChanged: (isDone) {
+                        value.toggleIsDone(todo.id);
+                      },
+                    ),
                     Expanded(
                       child: Text(
                         todo.title,

@@ -15,4 +15,10 @@ class TodoListModel extends ChangeNotifier {
     _todos.removeWhere((todo) => todo.id == id);
     notifyListeners();
   }
+
+  void toggleIsDone(String id) {
+    final todo = _todos.firstWhere((todo) => todo.id == id);
+    _todos[_todos.indexOf(todo)] = todo.copyWith(isDone: !todo.isDone);
+    notifyListeners();
+  }
 }
