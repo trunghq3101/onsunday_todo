@@ -44,8 +44,26 @@ class _AddTodoViewState extends State<AddTodoView> {
               setState(() {
                 _isEditing = false;
               });
+              _controller.clear();
+            },
+            child: const Text(
+              'Cancel',
+              style: TextStyle(
+                color: Color(0xFFAF4949),
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          const SizedBox(width: 16),
+          GestureDetector(
+            onTap: () {
+              setState(() {
+                _isEditing = false;
+              });
               final model = Provider.of<TodoListModel>(context, listen: false);
               model.addTodo(_controller.text);
+              _controller.clear();
             },
             child: const Text(
               'Done',
