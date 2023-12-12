@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
+
+import 'todo_list_model.dart';
 
 class AddTodoView extends StatefulWidget {
   const AddTodoView({super.key});
@@ -11,7 +13,6 @@ class AddTodoView extends StatefulWidget {
 class _AddTodoViewState extends State<AddTodoView> {
   bool _isEditing = false;
   late final TextEditingController _controller = TextEditingController();
-  final FocusNode _focusNode = FocusNode();
 
   Widget _buildEditingView() {
     return Container(
@@ -24,8 +25,7 @@ class _AddTodoViewState extends State<AddTodoView> {
       child: Row(
         children: [
           Expanded(
-            child: EditableText(
-              focusNode: _focusNode,
+            child: TextField(
               controller: _controller,
               autofocus: true,
               style: const TextStyle(
@@ -34,8 +34,9 @@ class _AddTodoViewState extends State<AddTodoView> {
                 fontWeight: FontWeight.bold,
               ),
               cursorColor: const Color(0xFF000000),
-              backgroundCursorColor: const Color(0xFF000000),
-              onChanged: (value) {},
+              decoration: const InputDecoration(
+                border: InputBorder.none,
+              ),
             ),
           ),
           GestureDetector(
@@ -43,6 +44,8 @@ class _AddTodoViewState extends State<AddTodoView> {
               setState(() {
                 _isEditing = false;
               });
+              final model = Provider.of<TodoListModel>(context, listen: false);
+              model.addTodo(_controller.text);
             },
             child: const Text(
               'Done',
@@ -64,8 +67,6 @@ class _AddTodoViewState extends State<AddTodoView> {
         setState(() {
           _isEditing = true;
         });
-        // final model = Provider.of<TodoListModel>(context, listen: false);
-        // model.addTodo('New todo');
       },
       child: Container(
         margin: const EdgeInsets.only(top: 24),
