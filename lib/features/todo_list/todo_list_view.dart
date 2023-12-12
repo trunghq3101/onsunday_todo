@@ -1,11 +1,16 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'todo_list_model.dart';
 
-class TodoListView extends StatelessWidget {
+class TodoListView extends StatefulWidget {
   const TodoListView({super.key});
 
+  @override
+  State<TodoListView> createState() => _TodoListViewState();
+}
+
+class _TodoListViewState extends State<TodoListView> {
   @override
   Widget build(BuildContext context) {
     return Consumer<TodoListModel>(
@@ -20,13 +25,28 @@ class TodoListView extends StatelessWidget {
                   color: const Color(0xFFFFFFFF),
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: Text(
-                  todo,
-                  style: const TextStyle(
-                    color: Color(0xFF000000),
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        todo.title,
+                        style: const TextStyle(
+                          color: Color(0xFF000000),
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        value.remove(todo.id);
+                      },
+                      child: const Icon(
+                        Icons.delete,
+                        color: Color(0xFFAF4949),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
