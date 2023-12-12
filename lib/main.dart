@@ -24,6 +24,7 @@ class MainApp extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
+            const Spacer(),
             GestureDetector(
               onTap: () {},
               child: Container(
