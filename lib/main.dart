@@ -9,10 +9,22 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: Container(
+        color: const Color.fromARGB(255, 119, 0, 255),
+        child: GestureDetector(
+          onTap: () {
+            // do something
+          },
+          child: const Center(
+            child: Text(
+              'Hello world',
+              style: TextStyle(
+                color: Color(0xFFFFFFFF),
+              ),
+            ),
+          ),
         ),
       ),
     );
