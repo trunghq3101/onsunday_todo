@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MainApp());
@@ -9,9 +9,8 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.ltr,
-      child: Container(
+    return MaterialApp(
+      home: Container(
         color: const Color(0xFFAAAFFF),
         padding: const EdgeInsets.all(24),
         child: const Text(
