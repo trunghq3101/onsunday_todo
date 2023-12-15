@@ -9,16 +9,18 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: const Color(0xFFAAAFFF),
-      padding: const EdgeInsets.all(24),
-      child: const Text(
-        'To-do List app',
-        textDirection: TextDirection.ltr,
-        style: TextStyle(
-          color: Color(0xFF000000),
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: Container(
+        color: const Color(0xFFAAAFFF),
+        padding: const EdgeInsets.all(24),
+        child: const Text(
+          'To-do List app',
+          style: TextStyle(
+            color: Color(0xFF000000),
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
     );
