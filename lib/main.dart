@@ -14,7 +14,6 @@ class MainApp extends StatelessWidget {
       padding: const EdgeInsets.all(24),
       child: const Text(
         'To-do List app',
-        textDirection: TextDirection.ltr,
         style: TextStyle(
           color: Color(0xFF000000),
           fontSize: 24,
